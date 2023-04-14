@@ -1,10 +1,10 @@
 ﻿/// <reference path="../geometry.js" />
 import { distanceInMiles } from "../geometry.js";
 
-const conferenceLocation = {
-    latitude: 47.6097,  // decimal degrees
-    longitude: 122.3331 // decimal degrees
-};
+var conferenceLocation = {
+        latitude: 47.6097,  // decimal degrees
+        longitude: 122.3331 // decimal degrees
+    };
 
 const maximumDistanceInMilesFromConferenceToShowVenue = 10;
 
@@ -28,6 +28,7 @@ function moveVenueSectionToTop() {
 function updateUIForPosition(position) {
     // TODO: Calculate the distance from the conference
     // const distance = ... ;
+const distance = distanceFromConference(position.coords);
 
     showDistanceMessage(distance);
     const isNearToConference = distance < maximumDistanceInMilesFromConferenceToShowVenue;
@@ -42,6 +43,7 @@ function error() {
 
     // TODO: Get current position from the geolocation API.
     //       Call updateUIForPosition for success and error for failure.
+navigator.geolocation.getCurrentPosition(updateUIForPosition, error);
 
     // SIG // Begin signature block
 // SIG // MIIaVgYJKoZIhvcNAQcCoIIaRzCCGkMCAQExCzAJBgUr

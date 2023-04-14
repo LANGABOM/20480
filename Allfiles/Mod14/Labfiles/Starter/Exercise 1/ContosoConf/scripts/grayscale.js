@@ -35,13 +35,8 @@ export function grayscaleImage(image) {
         const imageData = getImageData(context, image);
 
         // TODO: Create a Worker that runs /scripts/grayscale-worker.js
-
-        const pixels = imageData.data;
-        // 4 array items per pixel => Red, Green, Blue, Alpha
-        for (let i = 0; i < pixels.length; i += 4) {
-            grayscalePixel(pixels, i);
-        }
-
+  const worker = new Worker("/scripts/grayscale-worker.js");
+   const handleMessage = function (event) {
         // Update the canvas with the gray scaled image data.
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.putImageData(imageData, 0, 0);
@@ -49,6 +44,11 @@ export function grayscaleImage(image) {
         // Returning a Promise makes this function easy to chain together with other deferred operations.
         // The canvas object is returned as this can be used like an image.
         resolve([canvas]);
+    };
+    worker.addEventListener("message", handleMessage.bind(this));
+    worker.postMessage(imageData);
+       
+
     });
 };
 

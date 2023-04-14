@@ -55,15 +55,14 @@ export class LivePage {
         }
     }
 
-    handleQuestionsMessage(message) {
-        // message has the form:
-        //   { questions: [
-        //         { text: "...", id: 1 },
-        //         { text: "...", id: 2 }
-        //   ] }
-
-        // TODO: Display each question in the page, using the displayQuestion function.
-        message.questions.forEach(this.displayQuestion, this);
+   handleSocketMessage (event) {
+        // TODO: Parse the event data into message object.
+        const message = JSON.parse(event.data);
+        if (message.questions) {
+            this.handleQuestionsMessage(message);
+        } else if (message.remove) {
+            this.handleRemoveMessage(message);
+        }
     }
 
     handleRemoveMessage(message) {
@@ -78,7 +77,9 @@ export class LivePage {
 
     displayQuestion(question) {
         const item = this.createQuestionItem(question);
-        //item.appendChild(this.createReportLink());
+         item.appendChild(this.createReportLink());
+
+
         this.questionListElement.appendChild(item);
     }
 
@@ -114,5 +115,6 @@ export class LivePage {
 
     reportQuestion(questionId) {
         // TODO: Send socket message { report: questionId }
+ this.socket.send(JSON.stringify({ report: questionId }));
     }
 }

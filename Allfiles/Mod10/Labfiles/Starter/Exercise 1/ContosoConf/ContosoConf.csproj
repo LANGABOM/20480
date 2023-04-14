@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ContosoConf</RootNamespace>
     <AssemblyName>ContosoConf</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -129,6 +129,7 @@
     <Content Include="styles\pages\register.css" />
     <Content Include="styles\pages\about.css" />
     <Content Include="styles\pages\index.css" />
+    <Content Include="styles\print.css" />
     <Content Include="styles\site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

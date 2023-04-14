@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8"/>
         <title>Register for ContosoConf</title>
-        
-        <link href="/styles/site.css" rel="stylesheet" type="text/css" />
         <link href="/styles/pages/register.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/site.css" rel="stylesheet" type="text/css" />
+    
     </head>
     <body>
-        
+
         <nav class="page-nav">
             <div class="container">
                 <a href="/index.htm">Home</a>
@@ -17,33 +17,52 @@
                 <a href="/register.htm">Register</a>
             </div>
         </nav>
-        
+
         <header class="page-header">
             <div class="container">
                 <h1>ContosoConf</h1>
                 <p class="tag-line">A two-track conference on the latest HTML5 developments</p>
             </div>
         </header>
-        
+
         <section class="page-section register">
             <div class="container">
                 <h1>Register for the conference</h1>
                 <form method="post" action="/registration/new" id="registration-form">
                     <!--
-                        TODO: Add form inputs
+        TODO: Add form inputs
 
-                        FirstName - required string
-                        LastName - required string
-                        EmailAddress - required email address
-                        Password - required password string, at least 5 letters and numbers
-                        ConfirmPassword
-                        WebsiteUrl - optional url string
-                    -->
-                        
+        FirstName - required string
+        LastName - required string
+        EmailAddress - required email address
+        Password - required password string, at least 5 letters and numbers
+        ConfirmPassword
+        WebsiteUrl - optional url string
+    -->
                     <!-- Use the following template for the inputs -->
                     <div class="field">
-                        <label for="{input-id}">label:</label>
-                        <input type="{type}" id="{input-id}" name="{input-name}" />
+                        <label for="first-name" required="required">First name:</label>
+                        <input type="text" id="first-name" name="FirstName" />
+                    </div>
+                    <div class="field">
+                        <label for="last-name" required="required">Last name:</label>
+                        <input type="text" id="last-name" name="LastName" />
+                    </div>
+                    <div class="field">
+                        <label for="email-address" required="required">Email address:</label>
+                        <input type="email" id="email-address" name="EmailAddress" />
+                    </div>
+                    <div class="field">
+                        <label for="password" required="required">Choose a password:</label>
+                        <input type="password" id="password" name="Password" />
+                    </div>
+                    <div class="field">
+                        <label for="confirm-password" required="required">Confirm your password:</label>
+                        <input type="password" id="confirm-password" name="ConfirmPassword" />
+                    </div>
+                    <div class="field">
+                        <label for="website">Website/blog:</label>
+                        <input type="url" id="website" name="WebsiteUrl" placeholder="http://"/>
                     </div>
 
                     <div>
@@ -69,7 +88,7 @@
                 </p>
             </div>
         </footer>
-        
+
         <script src="/scripts/pages/register.js" type="text/javascript"></script>
     </body>
 </html>

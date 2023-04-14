@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ContosoConf</RootNamespace>
     <AssemblyName>ContosoConf</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -108,6 +108,7 @@
     <Content Include="images\sponsors\sponsor1.png" />
     <Content Include="index.htm" />
     <Content Include="scripts\ScheduleItem.js" />
+    <Content Include="scripts\ScheduleList.js" />
     <Content Include="styles\images\stars.png" />
     <Content Include="styles\header.css" />
     <Content Include="styles\footer.css" />

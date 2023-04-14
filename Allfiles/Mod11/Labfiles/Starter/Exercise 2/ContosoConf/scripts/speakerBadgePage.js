@@ -37,6 +37,7 @@ export class speakerBadgePage {
 
     drawBadge(image) {
         // TODO: Get the canvas's (this.canvas) context and assign to this.context
+this.context = this.canvas.getContext("2d");
 
         // TODO: Draw the following by calling the helper methods of `this`
         //       background
@@ -44,10 +45,21 @@ export class speakerBadgePage {
         //       speaker name
         //       image (or placeholder if no image)
         //       bar code (passing this.speakerId)
+this.drawBackground();
+    this.drawTopText();
+    this.drawSpeakerName();
+    if (image) {
+        this.drawSpeakerImage(image);
+    } else {
+        this.drawImagePlaceholder();
+    }
+    this.drawBarCode(this.speakerId);
     }
 
     drawBackground() {
         // TODO: Fill the canvas with a white rectangle
+ this.context.fillStyle = "white";
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     drawSpeakerImage(image) {
@@ -56,6 +68,10 @@ export class speakerBadgePage {
         //       Draw at:
         //       x, y = 20, 20
         //       w, h = 160, 160
+ const size = Math.min(image.width, image.height);
+    const sourceX = image.width / 2 - size / 2;
+    const sourceY = image.height / 2 - size / 2;
+    this.context.drawImage(image, sourceX, sourceY, size, size, 20, 20, 160, 160);
     }
 
     drawImagePlaceholder() {
@@ -83,6 +99,11 @@ export class speakerBadgePage {
         //       fill style = black
         //       text baseline = top
         //       text align = left
+this.context.font = "40px sans-serif";
+    this.context.fillStyle = "black";
+    this.context.textBaseline = "top";
+    this.context.textAlign = "left";
+    this.context.fillText(this.speakerName, 200, 60);
     }
 
     drawBarCode(text) {

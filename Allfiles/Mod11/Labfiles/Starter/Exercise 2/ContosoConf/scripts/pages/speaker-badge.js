@@ -2,6 +2,9 @@
 
 const badgeElement = document.querySelector(".badge");
 new speakerBadgePage(badgeElement);
+
+
+
 // SIG // Begin signature block
 // SIG // MIIaVgYJKoZIhvcNAQcCoIIaRzCCGkMCAQExCzAJBgUr
 // SIG // DgMCGgUAMGcGCisGAQQBgjcCAQSgWTBXMDIGCisGAQQB
